@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>自定义checkbox,radio样式</title>
+
+        <style type="text/css">
+
+            body {
+                margin: 0 auto;
+                width: 200px;
+            }
+
+            .radio-pseudo, .radio-sprite, .checkbox-pseudo, .checkbox-sprite {
+                margin-bottom: 5px;
+            }
+
+            input[type="radio"], input[type="checkbox"] {
+                display: none;
+            }
+
+            /* 伪元素实现CSS */
+            .radio-pseudo input[type="radio"] + label {
+                display: inline-block;
+                width: 16px;
+                height: 16px;
+                border: 1px solid #cdcdcd;
+                border-radius: 50%;
+            }
+
+            .radio-pseudo input[type="radio"]:checked + label,
+            .checkbox-pseudo input[type="checkbox"]:checked + label {
+                border: 1px solid #ce2917;
+            }
+
+            .radio-pseudo input[type="radio"]:checked + label::after {
+                position: relative;
+                top: -3px;
+                left: 5px;
+                display: inline-block;
+                width: 6px;
+                height: 6px;
+                content: '';
+                background-color: #ce2917;
+                border-radius: 50%;
+            }
+
+            .checkbox-pseudo input[type="checkbox"] + label {
+                display: inline-block;
+                width: 15px;
+                height: 15px;
+                border: 1px solid #cdcdcd;
+            }
+
+            .checkbox-pseudo input[type="checkbox"]:checked + label::after {
+                position: relative;
+                top: -5px;
+                left: 3px;
+                display: inline-block;
+                width: 6px;
+                height: 3px;
+                content: '';
+                border: 2px solid #ce2917;
+                border-top: none;
+                border-right: none;
+                -ms-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+            }
+
+            /* 雪碧图实现CSS */
+            .radio-sprite input[type="radio"] + label,
+            .checkbox-sprite input[type="checkbox"] + label {
+                display: inline-block;
+                width: 22px;
+                height: 21px;
+                background-image: url(sprite.png);
+                background-repeat: no-repeat;
+            }
+
+            .radio-sprite input[type="radio"] + label {
+                background-position: -37px -36px;
+            }
+
+            .radio-sprite input[type="radio"]:checked + label {
+                background-position: -37px -5px;
+            }
+
+            .checkbox-sprite input[type="checkbox"] + label {
+                background-position: -5px -36px;
+            }
+
+            .checkbox-sprite input[type="checkbox"]:checked + label {
+                background-position: -5px -5px;
+            }
+
+        </style>
+    </head>
+
+    <body>
+
+        <div class="pseudo">
+            <h2>伪元素实现</h2>
+
+            <div class="radio-pseudo">
+                <input type="radio" id="radio1" name="pseudo">
+                <label for="radio1"></label>
+            </div>
+
+            <div class="radio-pseudo">
+                <input type="radio" id="radio2" name="pseudo">
+                <label for="radio2"></label>
+            </div>
+
+            <div class="checkbox-pseudo">
+                <input type="checkbox" id="checkbox1">
+                <label for="checkbox1"></label>
+            </div>
+        </div>
+
+        <div class="sprite">
+            <h2>雪碧图实现</h2>
+
+            <div class="radio-sprite">
+                <input type="radio" id="radio3" name="sprite">
+                <label for="radio3"></label>
+            </div>
+
+            <div class="radio-sprite">
+                <input type="radio" id="radio4" name="sprite">
+                <label for="radio4"></label>
+            </div>
+
+            <div class="checkbox-sprite">
+                <input type="checkbox" id="checkbox2">
+                <label for="checkbox2"></label>
+            </div>
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,59 @@
+1. 原理
+    隐藏原生input标签，用label标签 for 属性关联input标签，定义label标签的样式即可
+
+2. label 标签
+    含义: 为元素定义标记，标题
+
+    for 属性: 设置相关联的表单控件
+      当 for 属性值与表单控件 id 属性值相同时，则此label标签与这个表单控件是关联的，即对label标签的用户行为就如同作用在关联的表单控件上，从而触发
+      表单控件的响应
+
+    labelable: elements that can be associated with <label> element
+      include: <button>, <input>, <meter>, <output>, <progress>, <select>, <textarea>
+
+
+3. 伪元素,伪类
+
+    伪类：specifies a special state of the element
+        存在的意义是为了通过选择器找到那些不存在于DOM树中的信息以及不能被常规CSS选择器获取到的信息
+        伪类由一个冒号:开头，冒号后面是伪类的名称和包含在圆括号中的可选参数。
+
+        e.g: :active, :checked, :first-child, :first-of-type, :nth:child() ...
+
+    伪元素: style certain parts of an element
+        伪元素在DOM树中创建了一些抽象元素，但这些抽象元素是不存在于文档语言里的（可以理解为html源码）
+
+        e.g: ::after, ::before, ::first-letter, ::first-line  ...
+
+    注意
+      CSS3为了区分伪类和伪元素，规定伪类前面有一个冒号 :，伪元素前面有两个冒号 ::
+
+
+    联系: 都是通过选择器为元素添加样式
+    区别: 伪元素会创建一个元素，但不是真正的Html元素，伪类相当于为一个元素创建一个class样式
+
+4. background-position:
+    设置背景图像的起始位置, 使用这个属性的前提是必须设置背景原图像background-image
+
+    坐标原点位置: 元素的左上角
+    background-position 位置设定是指图片与坐标原点位置的偏移量
+    原点是不会动的，移动的是图片 X坐标为正则图片向右平移，为负则图片向左平移，Y坐标为正则图片向下平移，为负则图片向上平移
+
+5. 雪碧图
+    将小图标和背景图像合并到一张图片上，然后利用css的背景定位background-position来显示需要显示的图片部分
+
+6. 特殊字符
+    属于unicode字符集，文档需要声明为'UTF-8'才能被解析
+
+    在不同文档中的写法：
+        Html      : &#   e.g: &#2714
+        Css       : \    e.g: \2714
+        Javascript: u    e.g: u2714
+
+    注意:
+        相同字符在不同的浏览器下表现可能不一样
+        有的字符在某些浏览器下不显示
+        移动端对此支持度较差，特别是在Window phone和UC浏览器，直接无法显示
+
+7. 参考文章
+    https://paulund.co.uk/style-checkboxes-with-css
